@@ -20,7 +20,7 @@ def increasing_left(n, symbol):
 def increasing_right(n, symbol):
     for i in range(1, n+1):
         print '{spaces}{symbols}'.format(
-            spaces=' ' * (n-i), 
+            spaces=' ' * (len(symbol)*(n-i)), 
             symbols=symbol * i
         )
     
@@ -33,8 +33,8 @@ def decreasing_right(n, symbol, left_padding):
     for i in range(n):
         print '{lp}{spaces}{symbols}'.format(
             symbols=symbol * (n-i),
-            spaces=' ' * i,
-            lp=' ' * left_padding
+            spaces=' ' * (len(symbol)*i),
+            lp=' ' * (len(symbol)*left_padding)
         )
     
 
@@ -49,14 +49,14 @@ def symmetric_right(n, symbol):
 def symmetric_bottom(n, symbol):
     for i in range(n):
         print '{spaces}{symbols}'.format(
-            spaces=' ' * (n-(i+1)),
+            spaces=' ' * (len(symbol)*(n-(i+1))),
             symbols=symbol * ((2*i)+1)
         )
 
 def symmetric_top(n, symbol):
     for i in range(n):
         print '{spaces}{symbols}'.format(
-            spaces=' ' * i,
+            spaces=' ' * (len(symbol)*i),
             symbols=symbol * (2*(n-1-i)+1)
         )
 
