@@ -3,8 +3,9 @@ import sys
 program=sys.argv[0]
 
 if len(sys.argv) < 3:
-    sys.exit("Usage: $ python {program} <count> <symbol>"
-             .format(program=program))
+    sys.exit(
+        ''' Usage: $ python {program} <count> <symbol>
+        e.g. $ python {program} 5 "*"'''.format(program=program))
 
 height=int(sys.argv[1])
 symbol=sys.argv[2]
