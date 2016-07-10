@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* How to compile?
+   $ gcc -c99 triangles.c -o triangles 
+*/
 
 void print_n(char c, int n) {
   for(int step=1; step<=n; step++){
@@ -121,7 +124,7 @@ void symmetric_top(int height, int left_padding) {
   }
 }
 
-void rambo(height) {
+void rambo(int height) {
   symmetric_bottom(height);
   symmetric_top(height-1,1);
   
@@ -160,7 +163,7 @@ int main(int argc, char * argv[]){
   increasing_right(height);
 
   print_title("decreasing RIGHT");
-  decreasing_right(height, 1);
+  decreasing_right(height, 0);
 
   print_title("symmetric RIGHT");
   symmetric_right(height);
