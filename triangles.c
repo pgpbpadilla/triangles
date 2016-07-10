@@ -92,10 +92,42 @@ void symmetric_bottom(int height) {
      s = (height - i) ; * = (2i + 1)
      
    */
-for(int i=0; i<=height; i++){
-printf("%d\n", i);
- }
+  for(int i=0; i<height; i++){
+    /*printf("%d, s= %d, * = %d\n", i, height-1-i, 2*i+1);*/
+    print_n(' ', height-1-i);
+    print_n('*', 2*i+1);
+    printf("\n");
+  }
 }
+
+void symmetric_top(int height, int left_padding) {
+  /*
+    height = 4
+    _ * * * * * * * \n :i=0; s= i= 0 ; * = 2*(4-0-1) + 1 = 7
+    _ _ * * * * * \n   :i=1; s= i= 1 ; * = 2*(4-1-1) + 1 = 5
+    _ _ _ * * * \n     :i=2; s= i= 2 ; * = 2*(4-2-1) + 1 = 3
+    _ _ _ _ * \n       :i=3; s= i= 3 ; * = 2*(4-3-1) + 1 = 1
+
+    s = i ; * = 2*(height - i - 1) + 1
+
+   */
+
+  for(int i= 0; i<height; i++){
+    /*printf("%d, s = %d, * = %d\n", i, i, 2*(height-i-1) + 1);*/
+    print_n(' ', left_padding);
+    print_n(' ', i);
+    print_n('*', 2*(height-i-1)+1);
+    printf("\n");
+  }
+}
+
+void rambo(height) {
+  symmetric_bottom(height);
+  symmetric_top(height-1,1);
+  
+}
+
+
 void print_title(char *title) {
   printf("\n------------%s-----------\n", title);
 }
@@ -135,5 +167,11 @@ int main(int argc, char * argv[]){
 
   print_title("symmetric BOTTOM");
   symmetric_bottom(height);
+
+  print_title("symmetric TOP");
+  symmetric_top(height, 0);
+
+  print_title("rambo");
+  rambo(height);
 }
   
